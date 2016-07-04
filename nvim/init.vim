@@ -27,6 +27,8 @@ call dein#add('tyru/open-browser.vim')
 call dein#add('tpope/vim-surround')
 call dein#add('davidhalter/jedi-vim',{'build' : 'pip install jedi','on_ft' :["python", "python3", "djangohtml"]})
 call dein#add('lambdalisue/vim-pyenv' ,{'depends' : 'davidhalter/jedi-vim'})
+call dein#add('scrooloose/nerdtree')
+call dein#add('vim-scripts/gtags.vim')
 " Required:
 call dein#end()
 
@@ -45,6 +47,15 @@ inoremap <silent> jj <ESC>
 set ignorecase
 set smartcase
 nmap <silent> <esc><esc> :nohlsearch<CR>
+set clipboard=unnamedplus
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
+set autoindent
+set smartindent
+
 "pyenv
 "let $PATH = "~/.pyenv/shims:".$PATH
 "deoplete
