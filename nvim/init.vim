@@ -29,6 +29,7 @@ call dein#add('davidhalter/jedi-vim',{'build' : 'pip install jedi','on_ft' :["py
 call dein#add('lambdalisue/vim-pyenv' ,{'depends' : 'davidhalter/jedi-vim'})
 call dein#add('scrooloose/nerdtree')
 call dein#add('vim-scripts/gtags.vim')
+call dein#add('taketwo/vim-ros')
 " Required:
 call dein#end()
 
@@ -64,7 +65,7 @@ let g:deoplete#enable_at_startup = 1
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 let g:unite_source_file_mru_limit = 200
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts = '--nocolor --nogroup'
