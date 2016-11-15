@@ -29,7 +29,6 @@ call dein#add('davidhalter/jedi-vim',{'build' : 'pip install jedi','on_ft' :["py
 call dein#add('lambdalisue/vim-pyenv' ,{'depends' : 'davidhalter/jedi-vim'})
 call dein#add('scrooloose/nerdtree')
 call dein#add('vim-scripts/gtags.vim')
-call dein#add('taketwo/vim-ros')
 " Required:
 call dein#end()
 
@@ -51,7 +50,7 @@ nmap <silent> <esc><esc> :nohlsearch<CR>
 set clipboard=unnamedplus
 set tabstop=4
 set softtabstop=4
-set shiftwidth=4
+set shiftwidth=0
 set expandtab
 set smarttab
 set autoindent
@@ -73,7 +72,7 @@ let g:unite_source_grep_recursive_opt = ''
 let g:unite_source_grep_max_candidates = 200
 "neosnippet
 " <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Plugin key-mappings.
@@ -81,7 +80,7 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 
 " SuperTab like snippets behavior.
-" imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
@@ -89,3 +88,9 @@ smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : 
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
+
+" C++ include  
+augroup cpp-path
+    autocmd!
+    autocmd FileType cpp setlocal path=.,/usr/include,/usr/local/include,/opt/ros/indigo/include
+augroup END
