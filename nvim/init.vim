@@ -29,6 +29,7 @@ call dein#add('davidhalter/jedi-vim',{'build' : 'pip install jedi','on_ft' :["py
 call dein#add('lambdalisue/vim-pyenv' ,{'depends' : 'davidhalter/jedi-vim'})
 call dein#add('scrooloose/nerdtree')
 call dein#add('vim-scripts/gtags.vim')
+call dein#add('ompugao/ros.vim')
 " Required:
 call dein#end()
 
@@ -61,15 +62,23 @@ set smartindent
 "deoplete
 let g:deoplete#enable_at_startup = 1
 "unite
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+let g:unite_enable_start_insert=1
 let g:unite_source_file_mru_limit = 200
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts = '--nocolor --nogroup'
 let g:unite_source_grep_recursive_opt = ''
 let g:unite_source_grep_max_candidates = 200
+
+function! DispatchUniteFileRecAsyncOrGit()
+  if isdirectory(getcwd()."/.git")
+    Unite file_rec/git
+  else
+    Unite file_rec/async:!
+  endif
+endfunction
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> ,uf :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 "neosnippet
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
