@@ -64,21 +64,13 @@ let g:deoplete#enable_at_startup = 1
 "unite
 let g:unite_enable_start_insert=1
 let g:unite_source_file_mru_limit = 200
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts = '--nocolor --nogroup'
-let g:unite_source_grep_recursive_opt = ''
-let g:unite_source_grep_max_candidates = 200
+let g:unite_source_rec_async_command =  ['ag', '--follow', '--nocolor', '--nogroup',   '--hidden', '-g', '']
+let g:unite_source_grep_max_candidates = 100
 
-function! DispatchUniteFileRecAsyncOrGit()
-  if isdirectory(getcwd()."/.git")
-    Unite file_rec/git
-  else
-    Unite file_rec/async:!
-  endif
-endfunction
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
-nnoremap <silent> ,uf :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
+nnoremap <silent> ,uf :<C-u>Unite file_rec/neovim<CR>
+nnoremap <silent> ,ug :<C-u>Unite file_rec/git<CR>
 "neosnippet
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
