@@ -27,6 +27,7 @@ call dein#add('tyru/open-browser.vim')
 call dein#add('tpope/vim-surround')
 call dein#add('davidhalter/jedi-vim',{'build' : 'pip install jedi','on_ft' :["python", "python3", "djangohtml"]})
 call dein#add('lambdalisue/vim-pyenv' ,{'depends' : 'davidhalter/jedi-vim'})
+call dein#add('scrooloose/syntastic')
 call dein#add('scrooloose/nerdtree')
 call dein#add('vim-scripts/gtags.vim')
 call dein#add('ompugao/ros.vim')
@@ -98,6 +99,9 @@ smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : 
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
+
+"syntastic
+let g:syntastic_python_checkers = ["flake8"]
 
 " C++ include  
 augroup cpp-path
