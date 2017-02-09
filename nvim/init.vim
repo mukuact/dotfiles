@@ -47,11 +47,10 @@ filetype plugin indent on
 set number
 inoremap <silent> jj <ESC>
 set ignorecase
-set smartcase
 nmap <silent> <esc><esc> :nohlsearch<CR>
 set clipboard=unnamedplus
 set tabstop=4
-set softtabstop=4
+set softtabstop=0
 set shiftwidth=0
 set expandtab
 set smarttab
@@ -102,6 +101,7 @@ endif
 
 "syntastic
 let g:syntastic_python_checkers = ["flake8"]
+let g:syntastic_check_on_wq = 0
 
 " C++ include  
 augroup cpp-path
