@@ -58,8 +58,10 @@ set smarttab
 set autoindent
 set smartindent
 
-"pyenv
-"let $PATH = "~/.pyenv/shims:".$PATH
+" python
+let g:python_host_prog = $PYENV_ROOT . '/shims/python'
+let g:python3_host_prog = $PYENV_ROOT . '/shims/python3'
+
 "deoplete
 let g:deoplete#enable_at_startup = 1
 " deoplete-clang
