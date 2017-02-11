@@ -12,7 +12,7 @@ call dein#begin(expand('$HOME/.config/nvim/dein'))
 " Let dein manage dein
 " Required:
 call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+"call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 
 " Add or remove your plugins here:
 call dein#add('Shougo/neosnippet.vim')
@@ -21,6 +21,7 @@ call dein#add('Shougo/deoplete.nvim')
 call dein#add('Shougo/denite.nvim')
 call dein#add('Shougo/vimshell.vim')
 call dein#add('Shougo/neomru.vim')
+call dein#add('Zchee/deoplete-clang', {'on_ft' : ['c', 'cpp', 'cmake']})
 call dein#add('kmnk/vim-unite-giti')
 call dein#add('kannokanno/previm')
 call dein#add('tyru/open-browser.vim')
@@ -61,17 +62,9 @@ set smartindent
 "let $PATH = "~/.pyenv/shims:".$PATH
 "deoplete
 let g:deoplete#enable_at_startup = 1
-
-""unite
-"let g:unite_enable_start_insert=1
-"let g:unite_source_file_mru_limit = 200
-"let g:unite_source_rec_async_command =  ['ag', '--follow', '--nocolor', '--nogroup',   '--hidden', '-g', '']
-"let g:unite_source_grep_max_candidates = 100
-"
-"nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-"nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
-"nnoremap <silent> ,uf :<C-u>Unite file_rec/neovim<CR>
-"nnoremap <silent> ,ug :<C-u>Unite file_rec/git<CR>
+" deoplete-clang
+let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-3.8/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header='/usr/include/clang/'
 
 "denite
 call denite#custom#map('insert', "<C-n>", '<denite:move_to_next_line>')
