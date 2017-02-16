@@ -8,24 +8,22 @@ repo = 'Shougo/neosnippet.vim'
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_i = 1
-
-[[plugins]]
 repo = 'Shougo/denite.nvim'
 
 [[plugins]]
-repo = 'Shougo/vimshell.vim'
+repo = 'Shougo/neomru.vim'
 
 [[plugins]]
-repo = 'Shougo/neomru.vim'
+repo = 'Shougo/deoplete.nvim'
+on_i = 1
 
 [[plugins]]
 repo = 'Zchee/deoplete-clang'
 on_ft = ['c', 'cpp', 'cmake']
 
 [[plugins]]
-repo = 'kmnk/vim-unite-giti'
+repo = 'zchee/deoplete-jedi'
+on_ft = ["python", "python3", "djangohtml"]
 
 [[plugins]]
 repo = 'kannokanno/previm'
@@ -51,14 +49,4 @@ depends = ['davidhalter/jedi-vim']
 repo = 'scrooloose/syntastic'
 
 [[plugins]]
-repo = 'scrooloose/nerdtree'
-
-[[plugins]]
-repo = 'vim-scripts/gtags.vim'
-
-[[plugins]]
 repo = 'ompugao/ros.vim'
-
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-on_ft = ['python']
