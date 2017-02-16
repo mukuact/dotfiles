@@ -39,6 +39,9 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = ["python", "python3", "djangohtml"]
+hook_add = '''
+  let g:jedi#completions_enabled = 0
+'''
 
 [[plugins]]
 repo = 'lambdalisue/vim-pyenv' 
@@ -55,3 +58,7 @@ repo = 'vim-scripts/gtags.vim'
 
 [[plugins]]
 repo = 'ompugao/ros.vim'
+
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+on_ft = ['python']
