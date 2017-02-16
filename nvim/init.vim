@@ -1,42 +1,27 @@
-"dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Required:
-set runtimepath^=$HOME/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+"dein Scripts-----------------------------
+let s:dein_dir = expand('$HOME/.config/nvim/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-" Required:
-call dein#begin(expand('$HOME/.config/nvim/dein'))
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
 
-" Let dein manage dein
-" Required:
-call dein#add('Shougo/dein.vim')
-"call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+if dein#load_state(s:dein_dir)
+    call dein#begin(s:dein_dir)
 
-" Add or remove your plugins here:
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('Shougo/denite.nvim')
-call dein#add('Shougo/vimshell.vim')
-call dein#add('Shougo/neomru.vim')
-call dein#add('Zchee/deoplete-clang', {'on_ft' : ['c', 'cpp', 'cmake']})
-call dein#add('kmnk/vim-unite-giti')
-call dein#add('kannokanno/previm')
-call dein#add('tyru/open-browser.vim')
-call dein#add('tpope/vim-surround')
-call dein#add('davidhalter/jedi-vim',{'build' : 'pip install jedi','on_ft' :["python", "python3", "djangohtml"]})
-call dein#add('lambdalisue/vim-pyenv' ,{'depends' : 'davidhalter/jedi-vim'})
-call dein#add('scrooloose/syntastic')
-call dein#add('scrooloose/nerdtree')
-call dein#add('vim-scripts/gtags.vim')
-call dein#add('ompugao/ros.vim')
-" Required:
-call dein#end()
+    let s:toml = s:dein_dir.'/../dein.toml'
+    call dein#load_toml(s:toml)
 
-" Required:
-filetype plugin indent on
+    call dein#end()
+    call dein#save_state()
+endif
 
 " If you want to install not installed plugins on startup.
 "if dein#check_install()
@@ -44,7 +29,7 @@ filetype plugin indent on
 "endif
 
 "End dein Scripts-------------------------
-"
+
 set number
 inoremap <silent> jj <ESC>
 set ignorecase
@@ -58,9 +43,9 @@ set smarttab
 set autoindent
 set smartindent
 
-" python
-let g:python_host_prog = $PYENV_ROOT . '/shims/python'
-let g:python3_host_prog = $PYENV_ROOT . '/shims/python3'
+"python
+let g:python_host_prog = "/usr/bin/python"
+let g:python3_host_prog = "/usr/bin/python3"
 
 "deoplete
 let g:deoplete#enable_at_startup = 1
