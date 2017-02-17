@@ -56,6 +56,7 @@ let g:deoplete#sources#clang#clang_header='/usr/include/clang/'
 "denite
 call denite#custom#map('insert', "<C-n>", '<denite:move_to_next_line>')
 call denite#custom#map('insert', "<C-p>", '<denite:move_to_previous_line>')
+call denite#custom#map('insert', "<C-a>", '<denite:move_caret_to_head>')
 call denite#custom#map('insert', "jj", '<denite:enter_mode:normal>')
 call denite#custom#var('file_rec', 'command',  ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
 nmap <silent> ,uf :<C-u>DeniteProjectDir file_rec<CR>
