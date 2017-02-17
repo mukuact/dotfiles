@@ -8,10 +8,33 @@ repo = 'Shougo/neosnippet.vim'
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
+repo = 'Shougo/neomru.vim'
 
 [[plugins]]
-repo = 'Shougo/neomru.vim'
+repo = 'Shougo/denite.nvim'
+depends = 'neomru.vim'
+hook_post_source = '''
+" Ag command on grep source
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts',
+        \ ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+" Ag command on file_rec source
+call denite#custom#var('file_rec', 'command',  ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+call denite#custom#map('insert', "<C-n>", '<denite:move_to_next_line>')
+call denite#custom#map('insert', "<C-p>", '<denite:move_to_previous_line>')
+call denite#custom#map('insert', "<C-a>", '<denite:move_caret_to_head>')
+call denite#custom#map('insert', "jj", '<denite:enter_mode:normal>')
+'''
+hook_add = '''
+nmap <silent> ,uf :<C-u>DeniteProjectDir file_rec<CR>
+nmap <silent> ,ug :<C-u>DeniteProjectDir grep<CR>
+nmap <silent> ,uu :<C-u>Denite buffer file_mru<CR>
+nmap <silent> ,uh :<C-u>Denite help<CR>
+'''
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'

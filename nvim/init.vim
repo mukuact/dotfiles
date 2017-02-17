@@ -27,7 +27,7 @@ endif
 "if dein#check_install()
 "  call dein#install()
 "endif
-
+autocmd VimEnter * call dein#call_hook('post_source')
 "End dein Scripts-------------------------
 
 set number
@@ -54,15 +54,6 @@ let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-3.8/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header='/usr/include/clang/'
 
 "denite
-call denite#custom#map('insert', "<C-n>", '<denite:move_to_next_line>')
-call denite#custom#map('insert', "<C-p>", '<denite:move_to_previous_line>')
-call denite#custom#map('insert', "<C-a>", '<denite:move_caret_to_head>')
-call denite#custom#map('insert', "jj", '<denite:enter_mode:normal>')
-call denite#custom#var('file_rec', 'command',  ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-nmap <silent> ,uf :<C-u>DeniteProjectDir file_rec<CR>
-nmap <silent> ,ug :<C-u>DeniteProjectDir grep<CR>
-nmap <silent> ,uu :<C-u>Denite buffer file_mru<CR>
-nmap <silent> ,uh :<C-u>Denite help<CR>
 
 "neosnippet
 " <TAB>: completion.
