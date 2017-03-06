@@ -31,7 +31,7 @@ call denite#custom#map('insert', "jj", '<denite:enter_mode:normal>')
 '''
 hook_add = '''
 nmap <silent> ,uf :<C-u>DeniteProjectDir file_rec<CR>
-nmap <silent> ,ug :<C-u>DeniteProjectDir grep<CR>
+nmap <silent> ,ug :<C-u>Denite grep<CR>
 nmap <silent> ,uu :<C-u>Denite buffer file_mru<CR>
 nmap <silent> ,uh :<C-u>Denite help<CR>
 '''

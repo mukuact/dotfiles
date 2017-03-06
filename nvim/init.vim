@@ -29,7 +29,7 @@ endif
 "endif
 autocmd VimEnter * call dein#call_hook('post_source')
 "End dein Scripts-------------------------
-
+filetype plugin indent on
 set number
 inoremap <silent> jj <ESC>
 set ignorecase
