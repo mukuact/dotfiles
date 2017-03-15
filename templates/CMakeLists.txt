@@ -4,12 +4,12 @@ cmake_minimum_required(VERSION 2.8)
 project(SampleSolution)
 
 # OpenCVのパッケージを探す
-find_package(OpenCV REQUIRED)
-message("OPENCV ${OpenCV_VERSION} FOUND")
+# find_package(OpenCV REQUIRED)
+# message("OPENCV ${OpenCV_VERSION} FOUND")
 
 # インクルードパスを指定
-include_directories(${OpenCV_INCLUDE_DIRS})
+include_directories()
 
 # 実行ファイル名とソース指定
 add_executable(SampleProject main.cpp)
-target_link_libraries(SampleProject ${OpenCV_LIBS})
+target_link_libraries(SampleProject)
