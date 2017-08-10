@@ -39,10 +39,18 @@ nmap <silent> ,uh :<C-u>Denite help<CR>
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 on_i = 1
+hook_post_source = '''
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 50
+'''
 
 [[plugins]]
 repo = 'Zchee/deoplete-clang'
 on_ft = ['c', 'cpp', 'cmake']
+hook_post_source = '''
+let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-3.8/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header='/usr/include/clang/'
+'''
 
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
@@ -70,6 +78,19 @@ depends = ['davidhalter/jedi-vim']
 
 [[plugins]]
 repo = 'scrooloose/syntastic'
+hook_post_source = '''
+let g:syntastic_mode_map = {
+        \ "mode": "passive",
+        \ "active_filetypes": ["python","c", "cpp"],
+        \ "passive_filetypes": [] }
+let g:syntastic_python_checkers = ["flake8"]
+let g:syntastic_check_on_wq = 0
+" let g:syntastic_c_check_header = 1
+" let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_checkers = ["clang_check"]
+let g:syntastic_cpp_clang_check_post_args = ""
+let g:syntastic_c_clang_check_post_args = ""
+'''
 
 [[plugins]]
 repo = 'ompugao/ros.vim'

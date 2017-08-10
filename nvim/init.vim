@@ -42,17 +42,14 @@ set expandtab
 set smarttab
 set autoindent
 set smartindent
+set guicursor=
 
 "python
 let g:python_host_prog = "/usr/bin/python"
 let g:python3_host_prog = "/usr/bin/python3"
 
 "deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay = 50
 " deoplete-clang
-let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-3.8/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header='/usr/include/clang/'
 
 "denite
 
@@ -74,17 +71,6 @@ if has('conceal')
 endif
 
 "syntastic
-let g:syntastic_mode_map = {
-        \ "mode": "passive",
-        \ "active_filetypes": ["python","c", "cpp"],
-        \ "passive_filetypes": [] }
-let g:syntastic_python_checkers = ["flake8"]
-let g:syntastic_check_on_wq = 0
-" let g:syntastic_c_check_header = 1
-" let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_checkers = ["clang_check"]
-let g:syntastic_cpp_clang_check_post_args = ""
-let g:syntastic_c_clang_check_post_args = ""
 
 " C++ include  
 augroup cpp-path
