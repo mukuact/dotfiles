@@ -40,7 +40,6 @@ nmap <silent> ,uh :<C-u>Denite help<CR>
 repo = 'Shougo/deoplete.nvim'
 on_i = 1
 hook_post_source = '''
-let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_delay = 50
 '''
 

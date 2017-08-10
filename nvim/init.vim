@@ -49,9 +49,7 @@ let g:python_host_prog = "/usr/bin/python"
 let g:python3_host_prog = "/usr/bin/python3"
 
 "deoplete
-" deoplete-clang
-
-"denite
+let g:deoplete#enable_at_startup = 1
 
 "neosnippet
 " <TAB>: completion.
@@ -69,8 +67,6 @@ smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : 
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
-
-"syntastic
 
 " C++ include  
 augroup cpp-path
