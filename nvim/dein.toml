@@ -73,3 +73,6 @@ repo = 'scrooloose/syntastic'
 
 [[plugins]]
 repo = 'ompugao/ros.vim'
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
