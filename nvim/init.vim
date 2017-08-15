@@ -41,17 +41,12 @@ set shiftwidth=0
 set expandtab
 set smarttab
 set autoindent
-set smartindent
 "temporary
 set guicursor=
-
 
 "python
 let g:python_host_prog = "/usr/bin/python"
 let g:python3_host_prog = "/usr/bin/python3"
-
-"deoplete
-let g:deoplete#enable_at_startup = 1
 
 "neosnippet
 " <TAB>: completion.
