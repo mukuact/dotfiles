@@ -42,6 +42,9 @@ set expandtab
 set smarttab
 set autoindent
 set smartindent
+"temporary
+set guicursor=
+
 
 "python
 let g:python_host_prog = "/usr/bin/python"
