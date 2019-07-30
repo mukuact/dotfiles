@@ -21,7 +21,16 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+"" ale
+let g:ale_completion_enabled = 1
+
 call plug#begin('~/.vim/plugged')
+
+if has('nvim')
+Plug 'dense-analysis/ale'
+else
 Plug 'davidhalter/jedi-vim'
+Plug 'pangloss/vim-javascript'
+endif
 call plug#end()
 
