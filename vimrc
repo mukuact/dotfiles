@@ -25,7 +25,10 @@ endif
 let g:ale_completion_enabled = 1
 let g:ale_linters = {
 \   'rust': ['rls'],
+\   'python': ['pyls'],
 \ }   
+let g:ale_fixers = {
+\ }
 
 call plug#begin('~/.vim/plugged')
 
